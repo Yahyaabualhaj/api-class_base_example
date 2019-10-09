@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="da53f29a-44ed-42d3-903f-ea1ae5b0b172" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="da53f29a-44ed-42d3-903f-ea1ae5b0b172" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,11 +44,26 @@
       <option name="project" value="LOCAL" />
       <updated>1570613460063</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add static settings">
+      <created>1570614644594</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1570614644594</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add static settings">
+      <created>1570614772981</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1570614772981</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add local_settings.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="add local_settings.py" />
+    <MESSAGE value="add static settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="add static settings" />
   </component>
 </project>
