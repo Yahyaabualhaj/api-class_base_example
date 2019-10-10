@@ -9,7 +9,7 @@ from memberships.views import IdDocumentsViewSet, UserViewSet
 router = routers.DefaultRouter()
 router.register(r'id_document', IdDocumentsViewSet, basename='id_document')
 router.register(r'users', UserViewSet, basename='user')
-router.register(r'members', UserViewSet, basename='member')
+router.register(r'members', MemberViewSet, basename='member')
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
