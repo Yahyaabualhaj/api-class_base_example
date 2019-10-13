@@ -105,5 +105,6 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class MemberViewSet(viewsets.ModelViewSet):
+    authentication_classes = [TokenAuthentication, ]
     queryset = Members.objects.all()
     serializer_class = MemberSerializer

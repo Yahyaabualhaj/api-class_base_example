@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="da53f29a-44ed-42d3-903f-ea1ae5b0b172" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/memberships/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/memberships/serializers.py" afterDir="false" />
+    <list default="true" id="d7eaebe2-569a-4af9-b88a-421555641fbc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memberships/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/memberships/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/um/local_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/um/local_settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/um/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/um/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/um/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/um/wsgi.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,7 +111,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
