@@ -13,7 +13,7 @@ class IdDocumentsSerializer(serializers.HyperlinkedModelSerializer):
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'is_active']
+        fields = ['id', 'username', 'first_name', 'last_name', 'email', 'is_active']
 
 
 class MemberSerializer(serializers.HyperlinkedModelSerializer):

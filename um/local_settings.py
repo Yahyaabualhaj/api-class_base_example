@@ -4,7 +4,7 @@ SECRET_KEY = '3m*ba-5hvdt@n(whd9#_ek=jw=noxir5!f1=4i18*57&anop5m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['142.93.136.60']
+ALLOWED_HOSTS = ['178.62.251.45']
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -12,7 +12,7 @@ ALLOWED_HOSTS = ['142.93.136.60']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'api_um_db',
+        'NAME': 'um_prod',
         'USER': 'dbadmin',
         'PASSWORD': 'asdasdasd',
         'HOST': 'localhost',
