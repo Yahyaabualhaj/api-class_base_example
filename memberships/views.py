@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework.authentication import TokenAuthentication
+from rest_framework.throttling import UserRateThrottle
 
 from .models import IdDocuments, Members
 from .serializers import IdDocumentsSerializer, UserSerializer, MemberSerializer
@@ -21,7 +22,9 @@ class IdDocumentsViewSet(viewsets.ModelViewSet):
 
 
 class UserViewSet(viewsets.ModelViewSet):
-    # authentication_classes = [TokenAuthentication, ]
+    authentication_classes = [TokenAuthentication, ]
+    throttle_classes = [UserRateThrottle]
+
     queryset = User.objects.all()
 
     # def get_queryset(self):

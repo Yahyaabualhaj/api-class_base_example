@@ -4,7 +4,7 @@ SECRET_KEY = '3m*ba-5hvdt@n(whd9#_ek=jw=noxir5!f1=4i18*57&anop5m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['178.62.250.51']
+ALLOWED_HOSTS = ['178.62.224.55']
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
