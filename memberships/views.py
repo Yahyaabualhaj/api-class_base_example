@@ -11,8 +11,8 @@ from rest_framework.decorators import action
 
 # ViewSets define the view behavior.
 class IdDocumentsViewSet(viewsets.ModelViewSet):
-    serializer_class = IdDocumentsSerializer
     authentication_classes = [TokenAuthentication, ]
+    serializer_class = IdDocumentsSerializer
     permission_classes = []
 
     def get_queryset(self):
@@ -21,7 +21,7 @@ class IdDocumentsViewSet(viewsets.ModelViewSet):
 
 
 class UserViewSet(viewsets.ModelViewSet):
-    # authentication_classes = [TokenAuthentication, ]
+    authentication_classes = [TokenAuthentication, ]
     queryset = User.objects.all()
 
     # def get_queryset(self):
@@ -105,6 +105,6 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class MemberViewSet(viewsets.ModelViewSet):
-    authentication_classes = [TokenAuthentication, ]
+    #authentication_classes = [TokenAuthentication, ]
     queryset = Members.objects.all()
     serializer_class = MemberSerializer
