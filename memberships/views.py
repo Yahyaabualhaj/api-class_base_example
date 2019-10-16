@@ -1,7 +1,10 @@
 from django.shortcuts import render
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.throttling import UserRateThrottle
-
+from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser, IsAuthenticatedOrReadOnly
+from rest_framework.throttling import UserRateThrottle, AnonRateThrottle
+from rest_framework.pagination import LimitOffsetPagination
 from .models import IdDocuments, Members
 from .serializers import IdDocumentsSerializer, UserSerializer, MemberSerializer
 from rest_framework import viewsets, status
@@ -11,20 +14,24 @@ from rest_framework.decorators import action
 
 
 # ViewSets define the view behavior.
+# EndPoint = id_document
 class IdDocumentsViewSet(viewsets.ModelViewSet):
-    serializer_class = IdDocumentsSerializer
     authentication_classes = [TokenAuthentication, ]
-    permission_classes = []
+    permission_classes = [IsAuthenticatedOrReadOnly, ]
+    # throttle_classes = [UserRateThrottle]
+    serializer_class = IdDocumentsSerializer
 
     def get_queryset(self):
         queryset = IdDocuments.objects.filter(id_type="Passport")
         return queryset
 
 
+# EndPoint = users
 class UserViewSet(viewsets.ModelViewSet):
     authentication_classes = [TokenAuthentication, ]
-    throttle_classes = [UserRateThrottle]
-
+    permission_classes = [AllowAny, ]
+    throttle_classes = [UserRateThrottle, AnonRateThrottle]
+    pagination_class = [LimitOffsetPagination, ]
     queryset = User.objects.all()
 
     # def get_queryset(self):
@@ -35,11 +42,12 @@ class UserViewSet(viewsets.ModelViewSet):
     #
     #     return queryset
 
-    # serializer_class = UserSerializer
+    serializer_class = UserSerializer
 
     # get all
+    @method_decorator(cache_page(60*2))
     def list(self, request, *args, **kwargs):
-        obj = User.objects.all()
+        obj = User.objects.all().order_by('-id')
         serializer = UserSerializer(obj, many=True)
         return Response(serializer.data)
 
@@ -107,7 +115,19 @@ class UserViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
 
+# EndPoint = members
 class MemberViewSet(viewsets.ModelViewSet):
     authentication_classes = [TokenAuthentication, ]
+    permission_classes = [IsAdminUser, ]
+    # throttle_classes = []
+
     queryset = Members.objects.all()
     serializer_class = MemberSerializer
+
+    @action(detail=False)
+    def fun(self, request, *args, **kwargs):
+        pass
+
+
+def home(request):
+    return render(request, 'home.html')

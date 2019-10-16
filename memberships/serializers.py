@@ -16,7 +16,17 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['id', 'username', 'first_name', 'last_name', 'email', 'is_active']
 
 
-class MemberSerializer(serializers.HyperlinkedModelSerializer):
+class MemberSerializer(serializers.ModelSerializer):
+    # user = serializers.HyperlinkedRelatedField(
+    #
+    #     read_only=True,
+    #     view_name='UserViewSet')
+    #
+    # id_document = serializers.HyperlinkedRelatedField(
+    #     many=True,
+    #     read_only=True,
+    #     view_name='id_document')
+
     class Meta:
         model = Members
         fields = ['user', 'id_document']
