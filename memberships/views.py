@@ -18,19 +18,25 @@ from rest_framework.decorators import action
 class IdDocumentsViewSet(viewsets.ModelViewSet):
     authentication_classes = [TokenAuthentication, ]
     permission_classes = [IsAuthenticatedOrReadOnly, ]
-    # throttle_classes = [UserRateThrottle]
+    throttle_classes = [UserRateThrottle]
     serializer_class = IdDocumentsSerializer
 
-    def get_queryset(self):
-        queryset = IdDocuments.objects.filter(id_type="Passport")
-        return queryset
+    queryset = IdDocuments.objects.all()
+
+    # post
+    def create(self, request, *args, **kwargs):
+        serializer = IdDocumentsSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 
 # EndPoint = users
 class UserViewSet(viewsets.ModelViewSet):
     authentication_classes = [TokenAuthentication, ]
     permission_classes = [AllowAny, ]
-    throttle_classes = [UserRateThrottle, AnonRateThrottle]
+    # throttle_classes = [UserRateThrottle, AnonRateThrottle]
     pagination_class = [LimitOffsetPagination, ]
     queryset = User.objects.all()
 
@@ -45,7 +51,7 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
     # get all
-    @method_decorator(cache_page(60*2))
+    @method_decorator(cache_page(60 * 2))
     def list(self, request, *args, **kwargs):
         obj = User.objects.all().order_by('-id')
         serializer = UserSerializer(obj, many=True)
@@ -127,6 +133,14 @@ class MemberViewSet(viewsets.ModelViewSet):
     @action(detail=False)
     def fun(self, request, *args, **kwargs):
         pass
+
+    # post
+    def create(self, request, *args, **kwargs):
+        serializer = MemberSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 
 def home(request):
