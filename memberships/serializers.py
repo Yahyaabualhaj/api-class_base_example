@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class IdDocumentsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = IdDocuments
-        fields = ['id', 'id_type', 'id_no', 'f_name', 'expiry_date']
+        fields = ['id', 'id_type', 'id_no', 'f_name', 'l_name', 'expiry_date']
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):

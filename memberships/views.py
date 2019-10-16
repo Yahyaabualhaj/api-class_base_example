@@ -18,8 +18,8 @@ from rest_framework.decorators import action
 class IdDocumentsViewSet(viewsets.ModelViewSet):
     authentication_classes = [TokenAuthentication, ]
     permission_classes = [IsAuthenticatedOrReadOnly, ]
-    throttle_classes = [UserRateThrottle]
-    serializer_class = IdDocumentsSerializer
+    # throttle_classes = [UserRateThrottle]
+    # serializer_class = IdDocumentsSerializer
 
     queryset = IdDocuments.objects.all()
 
@@ -37,7 +37,7 @@ class UserViewSet(viewsets.ModelViewSet):
     authentication_classes = [TokenAuthentication, ]
     permission_classes = [AllowAny, ]
     # throttle_classes = [UserRateThrottle, AnonRateThrottle]
-    pagination_class = [LimitOffsetPagination, ]
+    # pagination_class = [LimitOffsetPagination, ]
     queryset = User.objects.all()
 
     # def get_queryset(self):
@@ -75,7 +75,7 @@ class UserViewSet(viewsets.ModelViewSet):
     def update(self, request, *args, **kwargs):
         user = self.get_object()
 
-        user.username = 'Mr. ' + request.data['username']
+        user.username = 'Mr. s' + request.data['username']
         user.save()
         serializer = UserSerializer(user)
 
